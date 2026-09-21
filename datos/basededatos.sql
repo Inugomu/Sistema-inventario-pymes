@@ -77,7 +77,7 @@ CREATE TABLE salida_inventario (
     id_movimiento INT PRIMARY KEY,
     motivo_salida VARCHAR(150)
 );
-
+-- ---------- 1. CATEGORIA  ----------
 INSERT INTO categoria (nombre_categoria) VALUES
     ('Café en grano'),
     ('Café molido'),
@@ -90,7 +90,7 @@ INSERT INTO categoria (nombre_categoria) VALUES
     ('Snacks'),
     ('Equipamiento de café');
 
--- ---------- 2. PROVEEDOR (10) ----------
+-- ---------- 2. PROVEEDOR  ----------
 INSERT INTO proveedor (nombre, telefono, email) VALUES
     ('Café Fantasía Ltda.', '+56912345678', 'contacto@cafefantasia.cl'),
     ('Distribuidora Lácteos Los Ríos', '+56923456789', 'ventas@lacteoslosrios.cl'),
@@ -103,7 +103,7 @@ INSERT INTO proveedor (nombre, telefono, email) VALUES
     ('Barista Import SpA', '+56978901234', 'contacto@baristaimport.cl'),
     ('Frutos del Sur', '+56989012345', 'pedidos@frutosdelsur.cl');
 
--- ---------- 3. ALMACEN (10) ----------
+-- ---------- 3. ALMACEN  ----------
 INSERT INTO almacen (nombre_almacen, direccion, capacidad_maxima) VALUES
     ('Bodega Central', 'Av. Alemania 0671, Temuco', 500),
     ('Refrigerador Barra', 'Av. Alemania 0671, Temuco (interior local)', 100),
@@ -116,7 +116,7 @@ INSERT INTO almacen (nombre_almacen, direccion, capacidad_maxima) VALUES
     ('Área Barista', 'Av. Alemania 0671, Temuco (barra)', 40),
     ('Bodega Sucursal Portal Temuco', 'Portal Temuco, Av. Alemania 671 local 15', 200);
 
--- ---------- 4. PRODUCTO (20 = 10 perecibles + 10 no perecibles) ----------
+-- ---------- 4. PRODUCTO ( 10 perecibles + 10 no perecibles) ----------
 INSERT INTO producto (nombre, descripcion, precio, stock_actual, stock_minimo, tipo_producto, id_categoria, id_proveedor) VALUES
     ('Café en grano Colombia 1kg', 'Grano tostado origen Colombia', 12990.00, 30, 5, 'PERECIBLE', 1, 1),
     ('Café en grano Brasil 1kg', 'Grano tostado origen Brasil', 11990.00, 25, 5, 'PERECIBLE', 1, 1),
@@ -178,7 +178,7 @@ INSERT INTO producto_almacen (id_producto, id_almacen, cantidad) VALUES
     (16, 9, 6),
     (20, 1, 10);
 
--- ---------- 8. MOVIMIENTO_INVENTARIO (20 = 10 entradas + 10 salidas) ----------
+-- ---------- 8. MOVIMIENTO_INVENTARIO ( 10 entradas + 10 salidas) ----------
 INSERT INTO movimiento_inventario (fecha, cantidad, observacion, tipo_movimiento, id_producto) VALUES
     ('2026-08-01', 20, 'Reposición mensual café en grano Colombia', 'ENTRADA', 1),
     ('2026-08-01', 15, 'Reposición café en grano Brasil', 'ENTRADA', 2),
