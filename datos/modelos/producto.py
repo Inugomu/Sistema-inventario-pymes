@@ -1,5 +1,6 @@
 from peewee import AutoField, CharField, DecimalField, IntegerField, Model
 from datos.conexion import conectar
+from auxiliares.datos_inventario import defecto
 
 base_datos = conectar()
 
@@ -12,11 +13,11 @@ class Producto(BaseModel):
     nombre = CharField(max_length=100)
     descripcion = CharField(max_length=255, null=True)
     precio = DecimalField(max_digits=10, decimal_places=2)
-    stock_actual = IntegerField(default=0)
-    stock_minimo = IntegerField(default=0)
+    stock_actual = IntegerField(defecto)
+    stock_minimo = IntegerField(defecto)
     tipo_producto = CharField(max_length=50, null=True)
-    id_categoria = IntegerField()  # O ForeignKeyField(Categoria, ...) si usas relaciones
-    id_proveedor = IntegerField()  # O ForeignKeyField(Proveedor, ...) si usas relaciones
+    id_categoria = IntegerField()  
+    id_proveedor = IntegerField()  
 
     class Meta:
         table_name = 'producto'

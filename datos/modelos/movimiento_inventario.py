@@ -11,7 +11,7 @@ class MovimientoInventario(BaseModel):
     id_movimiento = AutoField()
     cantidad = IntegerField()
     fecha_movimiento = DateTimeField()
-    id_producto = IntegerField()  # O ForeignKeyField(Producto, ...)
+    id_producto = IntegerField()  
 
     class Meta:
         table_name = 'movimiento_inventario'

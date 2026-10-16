@@ -9,7 +9,7 @@ class BaseModel(Model):
 
 class ProductoNoPerecible(BaseModel):
     id_no_perecible = AutoField()
-    id_producto = IntegerField()  # O ForeignKeyField(Producto, ...)
+    id_producto = IntegerField()  
     garantia_meses = IntegerField()
 
     class Meta:

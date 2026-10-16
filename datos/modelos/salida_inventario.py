@@ -8,8 +8,8 @@ class BaseModel(Model):
         database = base_datos
 
 class SalidaInventario(BaseModel):
-    id_salida = AutoField()  # O id_movimiento según tu esquema de BD
-    id_movimiento = IntegerField()  # O ForeignKeyField(MovimientoInventario, ...)
+    id_salida = AutoField() 
+    id_movimiento = IntegerField()  
     motivo_salida = CharField(max_length=255)
 
     class Meta:
