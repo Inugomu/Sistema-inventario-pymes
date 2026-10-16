@@ -1,4 +1,16 @@
-class Producto_no_perecible:
-    def __init__(self, id_producto, garantia_meses):
-        self.__id_producto = id_producto
-        self.__garantia_meses = garantia_meses
+from peewee import AutoField, IntegerField, Model
+from datos.conexion import conectar
+
+base_datos = conectar()
+
+class BaseModel(Model):
+    class Meta:
+        database = base_datos
+
+class ProductoNoPerecible(BaseModel):
+    id_no_perecible = AutoField()
+    id_producto = IntegerField()  # O ForeignKeyField(Producto, ...)
+    garantia_meses = IntegerField()
+
+    class Meta:
+        table_name = 'producto_no_perecible'

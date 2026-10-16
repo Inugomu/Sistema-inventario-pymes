@@ -1,5 +1,16 @@
-class Producto_perecible:
-    def __init__(self, id_producto, fecha_vencimiento):
-        self.__id_producto = id_producto
-        self.__fecha_vencimiento = fecha_vencimiento
+from peewee import AutoField, DateField, IntegerField, Model
+from datos.conexion import conectar
 
+base_datos = conectar()
+
+class BaseModel(Model):
+    class Meta:
+        database = base_datos
+
+class ProductoPerecible(BaseModel):
+    id_perecible = AutoField()
+    id_producto = IntegerField()  # O ForeignKeyField(Producto, ...)
+    fecha_vencimiento = DateField()
+
+    class Meta:
+        table_name = 'producto_perecible'

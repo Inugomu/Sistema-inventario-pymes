@@ -1,6 +1,17 @@
-class producto_almacen:
-    def __init__(self,id_registro, id_producto, id_almacen, cantidad):
-        self.__id_registro = id_registro
-        self.__id_producto = id_producto
-        self.__id_almacen = id_almacen
-        self.__cantidad = cantidad
+from peewee import AutoField, IntegerField, Model
+from datos.conexion import conectar
+
+base_datos = conectar()
+
+class BaseModel(Model):
+    class Meta:
+        database = base_datos
+
+class ProductoAlmacen(BaseModel):
+    id_registro = AutoField()
+    id_producto = IntegerField()  # O ForeignKeyField(Producto, ...)
+    id_almacen = IntegerField()   # O ForeignKeyField(Almacen, ...)
+    cantidad = IntegerField(default=0)
+
+    class Meta:
+        table_name = 'producto_almacen'
