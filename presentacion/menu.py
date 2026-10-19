@@ -1,0 +1,1 @@
+from auxiliares.datos.repositorios.repo_almacen import listado_almacenes
