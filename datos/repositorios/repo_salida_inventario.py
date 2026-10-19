@@ -3,16 +3,16 @@ from auxiliares import mensaje_error
 
 def listado_salidas():
     try:
-        salida_inventario = SalidaInventario.select()
-        if salidas
+        salidas = SalidaInventario.select()
+        if salidas:
             return salidas
     except Exception as error:
         print(f'{mensaje_error}{error}')
 
 def obtener_salida_nombre(nombre_salida):
     try:
-        salida_inventario = SalidaInventario.get(SalidaInventario.salida_inventario == nombre_salida)
-        if salida
+        salida = SalidaInventario.get(SalidaInventario.salida_inventario == nombre_salida)
+        if salida:
             return salida
     except Exception as error:
         print(f'{mensaje_error}{error}')
@@ -22,7 +22,7 @@ def guardar_salida(salida_inventario:SalidaInventario):
         respuesta = salida_inventario.save()
         if respuesta == 1:
             return salida_inventario
-            print(f'Se ha guardado con éxito: {almacen.almacen}')
+            print(f'Se ha guardado con éxito: {salida_inventario}')
     except Exception as error:
         print(f'{mensaje_error}{error}')
 

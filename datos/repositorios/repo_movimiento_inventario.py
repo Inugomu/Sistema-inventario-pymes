@@ -1,4 +1,5 @@
-from datos,modelos.movimiento_inventario import Movimiento_inventario
+from datos.modelos.movimiento_inventario import Movimiento_inventario
+from auxiliares import mensaje_error
 
 def listado_moviemientos():
     try:
@@ -10,13 +11,13 @@ def listado_moviemientos():
 
 def obtener_movimiento_nombre(nombre_movimiento):
     try:
-        movimiento = Movimiento.get(Movimiento.movimiento = nombre_movimiento)
-        if movimiento
+        movimiento = Movimiento_inventario.get(Movimiento_inventario.movimiento == nombre_movimiento)
+        if movimiento:
             return movimiento
     except Exception as error:
         print(f'{mensaje_error}{error}')
 
-def guardar_movimiento(movimiento.Movimiento):
+def guardar_movimiento(movimiento):
     try:
         respuesta = movimiento()
         if respuesta == 1:

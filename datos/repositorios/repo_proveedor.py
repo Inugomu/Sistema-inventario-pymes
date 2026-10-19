@@ -17,11 +17,11 @@ def obtener_proveedor_nombre(nombre_proveedor):
     except Exception as error:
         print(f'{mensaje_error}{error}')
 
-def guardar_proveedor(proveedor.Proveedor):
+def guardar_proveedor(proveedor):
     try:
-        respuesta == proveedor.save()
+        respuesta = proveedor.save()
         if respuesta == 1:
-            print(f'Se ha guardado con éxito: {proovedor.proveedor}')
+            print(f'Se ha guardado con éxito: {proveedor.proveedor}')
     except Exception as error:
         print(f'{mensaje_error}{error}')
 
