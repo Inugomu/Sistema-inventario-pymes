@@ -1,0 +1,1 @@
+from negocio.negocio_almacen import procesar_listado_almacenes

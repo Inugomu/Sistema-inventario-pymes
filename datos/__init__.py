@@ -1,0 +1,3 @@
+from datos.repositorios.repo_almacen import listado_almacenes, obtener_almacen_nombre, guardar_almacen
+from datos.repositorios.repo_categoria import listado_categorias, obtener_categoria_nombre, guardar_categoria
+from datos.repositorios.repo_entrada_inventario import listado_entradas, obtener_entrada_por_id, guardar_entrada
