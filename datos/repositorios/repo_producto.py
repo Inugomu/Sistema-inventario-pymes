@@ -1,29 +1,28 @@
-from datos.modelos.producto import producto
-from auxiliares import mensaje_error
+from datos.modelos.producto import Producto
+from auxiliares.datos_inventario import mensaje_error
 
 def listado_productos():
     try:
         productos = Producto.select()
         if productos:
-            return productos
+            return list(productos)
     except Exception as error:
-        print(f'{mensaje_error}{error}')
+        print(f'{mensaje_error}: {error}')
+        return []
 
 def obtener_producto_nombre(nombre_producto):
     try:
-        producto = Producto.get(Producto.producto == nombre_almacen)
-        if producto:
-            return producto
+        return Producto.get(Producto.nombre == nombre_producto)
     except Exception as error:
-        print(f'{mensaje_error}{error}')
+        print(f'{mensaje_error}: {error}')
+        return None
 
-def guardar_producto(producto:Producto):
+def guardar_producto(producto: Producto):
     try:
         respuesta = producto.save()
         if respuesta == 1:
-            print (f'Se ha guardado con éxito: {producto.producto}')
+            print(f'Se ha guardado con éxito: {producto.nombre}')
+            return producto
     except Exception as error:
-        print(f'{mensaje_error}{error}')
-
-
-
+        print(f'{mensaje_error}: {error}')
+        return None
