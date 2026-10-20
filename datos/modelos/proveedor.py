@@ -1,11 +1,5 @@
-from peewee import AutoField, CharField, Model
-from datos.conexion import conectar
-
-base_datos = conectar()
-
-class BaseModel(Model):
-    class Meta:
-        database = base_datos
+from peewee import AutoField, CharField
+from datos.modelos.base import BaseModel
 
 class Proveedor(BaseModel):
     id_proveedor = AutoField()

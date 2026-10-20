@@ -1,3 +1,7 @@
 from datos.repositorios.repo_almacen import listado_almacenes, obtener_almacen_nombre, guardar_almacen
 from datos.repositorios.repo_categoria import listado_categorias, obtener_categoria_nombre, guardar_categoria
+from datos.repositorios.repo_producto import listado_productos, obtener_producto_nombre, guardar_producto
+from datos.repositorios.repo_proveedor import listado_proveedores, obtener_proveedor_nombre, guardar_proveedor
+from datos.repositorios.repo_movimiento_inventario import listado_movimientos, guardar_movimiento
 from datos.repositorios.repo_entrada_inventario import listado_entradas, obtener_entrada_por_id, guardar_entrada
+from datos.repositorios.repo_salida_inventario import listado_salidas, obtener_salida_por_id, guardar_salida
