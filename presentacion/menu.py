@@ -1,5 +1,9 @@
 import sys
-from presentacion import mostrar_listado_almacenes
+from presentacion import (
+    mostrar_listado_almacenes, 
+    mostrar_listado_productos, 
+    mostrar_listado_movimientos
+)
 
 def cargar_menu():
     while True:
@@ -7,8 +11,8 @@ def cargar_menu():
         print('   SISTEMA DE INVENTARIO PYME')
         print('====================================')
         print('[1] - Listar Almacenes')
-        print('[2] - Gestionar Productos (En desarrollo)')
-        print('[3] - Gestionar Movimientos (En desarrollo)')
+        print('[2] - Listar Productos')
+        print('[3] - Listar Movimientos de Inventario')
         print('[0] - Salir\n')
 
         opcion = input('Seleccione una opción: ').strip()
@@ -17,9 +21,9 @@ def cargar_menu():
             case '1':
                 mostrar_listado_almacenes()
             case '2':
-                print('\nMódulo de productos en desarrollo...\n')
+                mostrar_listado_productos()
             case '3':
-                print('\nMódulo de movimientos en desarrollo...\n')
+                mostrar_listado_movimientos()
             case '0':
                 print('\nSaliendo del sistema...')
                 sys.exit()

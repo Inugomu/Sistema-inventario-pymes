@@ -1,17 +1,13 @@
-from peewee import AutoField, DateTimeField, IntegerField, Model
-from datos.conexion import conectar
-
-base_datos = conectar()
-
-class BaseModel(Model):
-    class Meta:
-        database = base_datos
+from peewee import AutoField, DateField, IntegerField, CharField
+from datos.modelos.base import BaseModel
 
 class MovimientoInventario(BaseModel):
     id_movimiento = AutoField()
+    fecha = DateField()
     cantidad = IntegerField()
-    fecha_movimiento = DateTimeField()
-    id_producto = IntegerField()  
+    observacion = CharField(max_length=255, null=True)
+    tipo_movimiento = CharField(max_length=20)
+    id_producto = IntegerField()
 
     class Meta:
         table_name = 'movimiento_inventario'

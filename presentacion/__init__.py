@@ -1,1 +1,3 @@
 from presentacion.presentacion_almacen import mostrar_listado_almacenes
+from presentacion.presentacion_producto import mostrar_listado_productos
+from presentacion.presentacion_movimiento import mostrar_listado_movimientos

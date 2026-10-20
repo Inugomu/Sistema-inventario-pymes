@@ -1,27 +1,21 @@
-from datos.modelos.movimiento_inventario import Movimiento_inventario
-from auxiliares import mensaje_error
+from datos.modelos.movimiento_inventario import MovimientoInventario
+from auxiliares.datos_inventario import mensaje_error
 
-def listado_moviemientos():
+def listado_movimientos():
     try:
-        moviemientos = Movimiento.select()
+        movimientos = MovimientoInventario.select()
         if movimientos:
-            return moviemientos
+            return list(movimientos)
     except Exception as error:
-        print(f'{mensaje_error}{error}')
+        print(f'{mensaje_error}: {error}')
+        return []
 
-def obtener_movimiento_nombre(nombre_movimiento):
+def guardar_movimiento(movimiento: MovimientoInventario):
     try:
-        movimiento = Movimiento_inventario.get(Movimiento_inventario.movimiento == nombre_movimiento)
-        if movimiento:
-            return movimiento
-    except Exception as error:
-        print(f'{mensaje_error}{error}')
-
-def guardar_movimiento(movimiento):
-    try:
-        respuesta = movimiento()
+        respuesta = movimiento.save()
         if respuesta == 1:
+            print(f'Se ha registrado con éxito el movimiento ID: {movimiento.id_movimiento}')
             return movimiento
-            print(f'Se ha guardado con éxito: {movimiento.Movimiento}')
     except Exception as error:
-        print(f'{mensaje_error}{error}')
+        print(f'{mensaje_error}: {error}')
+        return None
