@@ -1,15 +1,8 @@
-from peewee import AutoField, DateField, IntegerField, Model
-from datos.conexion import conectar
-
-base_datos = conectar()
-
-class BaseModel(Model):
-    class Meta:
-        database = base_datos
+from peewee import DateField, IntegerField
+from datos.modelos.base import BaseModel
 
 class ProductoPerecible(BaseModel):
-    id_perecible = AutoField()
-    id_producto = IntegerField()  
+    id_producto = IntegerField(primary_key=True)
     fecha_vencimiento = DateField()
 
     class Meta:
