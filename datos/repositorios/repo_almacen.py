@@ -5,9 +5,10 @@ def listado_almacenes():
     try:
         almacenes = Almacen.select()
         if almacenes:
-            return almacenes
+            return list(almacenes)
     except Exception as error:
         print(f'{mensaje_error}: {error}')
+        return []
 
 def obtener_almacen_nombre(nombre_almacen):
     try:
@@ -16,12 +17,15 @@ def obtener_almacen_nombre(nombre_almacen):
             return almacen
     except Exception as error:
         print(f'{mensaje_error}: {error}')
+        return None
 
 def guardar_almacen(almacen: Almacen):
     try:
         respuesta = almacen.save()
         if respuesta == 1:
             print(f'Se ha guardado con éxito: {almacen.almacen}')
+            return almacen
     except Exception as error:
         print(f'{mensaje_error}: {error}')
-
+        return None
+    

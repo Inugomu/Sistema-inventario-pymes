@@ -5,9 +5,10 @@ def listado_entradas():
     try:
         entradas = EntradaInventario.select()
         if entradas:
-            return entradas
+            return list(entradas)
     except Exception as error:
         print(f'{mensaje_error}: {error}')
+        return []
 
 def obtener_entrada_por_nombre(nombre_entrada):
     try:
@@ -16,12 +17,15 @@ def obtener_entrada_por_nombre(nombre_entrada):
             return entrada
     except Exception as error:
         print(f'{mensaje_error}: {error}')
+        return None
 
 def guardar_entrada(entrada: EntradaInventario):
     try:
         respuesta = entrada.save()
         if respuesta == 1:
             print(f'Se ha guardado con éxito: {entrada.entrada}')
+            return entrada
     except Exception as error:
         print(f'{mensaje_error}: {error}')
-        
+        return None
+    

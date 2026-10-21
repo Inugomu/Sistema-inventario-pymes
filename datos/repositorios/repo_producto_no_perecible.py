@@ -8,6 +8,7 @@ def listado_productos_no_perecibles():
             return productos_no_perecibles
     except Exception as error:
         print(f'{mensaje_error}: {error}')
+        return []
 
 def obtener_producto_no_perecible_por_nombre(nombre_producto):
     try:
@@ -16,6 +17,7 @@ def obtener_producto_no_perecible_por_nombre(nombre_producto):
             return producto_no_perecible
     except Exception as error:
         print(f'{mensaje_error}: {error}')
+        return None
 
 def guardar_producto_no_perecible(producto: ProductoNoPerecible):
     try:
@@ -24,4 +26,6 @@ def guardar_producto_no_perecible(producto: ProductoNoPerecible):
             print(f'Se ha guardado con éxito: {producto.producto_no_perecible}')
     except Exception as error:
         print(f'{mensaje_error}: {error}')
+        return None
+    
 
