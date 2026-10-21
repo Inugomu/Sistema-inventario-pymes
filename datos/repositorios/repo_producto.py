@@ -12,7 +12,9 @@ def listado_productos():
 
 def obtener_producto_nombre(nombre_producto):
     try:
-        return Producto.get(Producto.nombre == nombre_producto)
+        producto = Producto.get(Producto.nombre == nombre_producto)
+        if producto:
+            return producto
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return None
@@ -21,8 +23,10 @@ def guardar_producto(producto: Producto):
     try:
         respuesta = producto.save()
         if respuesta == 1:
-            print(f'Se ha guardado con éxito: {producto.nombre}')
+            print(f'Se ha guardado con éxito: {producto.producto}')
             return producto
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return None
+
+    

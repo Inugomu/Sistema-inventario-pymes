@@ -12,7 +12,9 @@ def listado_proveedores():
 
 def obtener_proveedor_nombre(nombre_proveedor):
     try:
-        return Proveedor.get(Proveedor.nombre == nombre_proveedor)
+        obtener_proveedor = Proveedor.get(Proveedor.nombre == nombre_proveedor)
+        if obtener_proveedor:
+            return obtener_proveedor
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return None
@@ -21,7 +23,7 @@ def guardar_proveedor(proveedor: Proveedor):
     try:
         respuesta = proveedor.save()
         if respuesta == 1:
-            print(f'Se ha guardado con éxito: {proveedor.nombre}')
+            print(f'Se ha guardado con éxito: {proveedor.proveedor}')
             return proveedor
     except Exception as error:
         print(f'{mensaje_error}: {error}')

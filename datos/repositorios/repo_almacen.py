@@ -23,8 +23,9 @@ def guardar_almacen(almacen: Almacen):
     try:
         respuesta = almacen.save()
         if respuesta == 1:
-            print(f'Se ha guardado con éxito: {almacen.nombre_almacen}')
+            print(f'Se ha guardado con éxito: {almacen.almacen}')
             return almacen
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return None
+    

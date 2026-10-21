@@ -10,19 +10,22 @@ def listado_entradas():
         print(f'{mensaje_error}: {error}')
         return []
 
-def obtener_entrada_por_id(id_movimiento):
+def obtener_entrada_por_nombre(nombre_entrada):
     try:
-        return EntradaInventario.get(EntradaInventario.id_movimiento == id_movimiento)
+        entrada = EntradaInventario.get(EntradaInventario.nombre == nombre_entrada)
+        if entrada:
+            return entrada
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return None
 
 def guardar_entrada(entrada: EntradaInventario):
     try:
-        respuesta = entrada.save(force_insert=True)
+        respuesta = entrada.save()
         if respuesta == 1:
-            print(f'Se ha guardado la entrada para el movimiento ID: {entrada.id_movimiento}')
+            print(f'Se ha guardado con éxito: {entrada.entrada}')
             return entrada
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return None
+    

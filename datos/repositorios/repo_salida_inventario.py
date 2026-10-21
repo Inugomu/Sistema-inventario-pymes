@@ -5,24 +5,23 @@ def listado_salidas():
     try:
         salidas = SalidaInventario.select()
         if salidas:
-            return list(salidas)
+            return salidas
     except Exception as error:
         print(f'{mensaje_error}: {error}')
-        return []
 
-def obtener_salida_por_id(id_movimiento):
+def obtener_salida_por_nombre(nombre_salida):
     try:
-        return SalidaInventario.get(SalidaInventario.id_movimiento == id_movimiento)
-    except Exception as error:
-        print(f'{mensaje_error}: {error}')
-        return None
-
-def guardar_salida(salida: SalidaInventario):
-    try:
-        respuesta = salida.save(force_insert=True)
-        if respuesta == 1:
-            print(f'Se ha guardado la salida para el movimiento ID: {salida.id_movimiento}')
+        salida = SalidaInventario.get(SalidaInventario.nombre == nombre_salida)
+        if salida:
             return salida
     except Exception as error:
         print(f'{mensaje_error}: {error}')
-        return None
+
+def guardar_salida(salida: SalidaInventario):
+    try:
+        respuesta = salida.save()
+        if respuesta == 1:
+            print(f'Se ha guardado con exito: {salida.salida}')
+    except Exception as error:
+        print(f'{mensaje_error}: {error}')
+

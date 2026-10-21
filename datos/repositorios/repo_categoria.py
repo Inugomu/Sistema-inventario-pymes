@@ -9,20 +9,24 @@ def listado_categorias():
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return []
-
+    
 def obtener_categoria_nombre(nombre_categoria):
     try:
-        return Categoria.get(Categoria.nombre_categoria == nombre_categoria)
-    except Exception as error:
-        print(f'{mensaje_error}: {error}')
-        return None
-
-def guardar_categoria(categoria: Categoria):
-    try:
-        respuesta = categoria.save()
-        if respuesta == 1:
-            print(f'Se ha guardado la categoría: {categoria.nombre_categoria}')
+        categoria = Categoria.get(Categoria.nombre == nombre_categoria)
+        if categoria:
             return categoria
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return None
+    
+def guardar_categoria(categoria: Categoria):
+    try:
+        respuesta = categoria.save()
+        if respuesta == 1:
+            print(f'Se ha guardado con éxito: {categoria.categoria}')
+            return categoria
+    except Exception as error:
+        print(f'{mensaje_error}: {error}')
+        return None
+
+    
