@@ -1,7 +1,14 @@
-class Almacen:
-    def __init__(self, id_almacen, nombre_almacen, direccion, capacidad_maxima):
-        self.__id_almacen = id_almacen
-        self.__nombre_almacen = nombre_almacen
-        self.__direccion = direccion
-        self.__capacidad_maxima = capacidad_maxima
+from peewee import AutoField, CharField, IntegerField, SQL
+from datos.modelos.base import BaseModel
+from auxiliares.datos_inventario import defecto
+
+class Almacen(BaseModel):
+    id_almacen = AutoField()
+    nombre_almacen = CharField(max_length=100)
+    direccion = CharField(max_length=150, null=True)
+    capacidad_maxima = IntegerField(null=True, constraints=[SQL(defecto)])
+
+    class Meta:
+        table_name = 'almacen'
+
 

@@ -1,6 +1,13 @@
-class movimiento_inventario:
-    def __init__(self, id_movimiento, cantidad, fecha_movimiento, id_producto):
-        self.__id_movimiento = id_movimiento
-        self.__cantidad = cantidad
-        self.__fecha_movimiento = fecha_movimiento
-        self.__id_producto = id_producto
+from peewee import AutoField, DateField, IntegerField, CharField
+from datos.modelos.base import BaseModel
+
+class MovimientoInventario(BaseModel):
+    id_movimiento = AutoField()
+    fecha = DateField()
+    cantidad = IntegerField()
+    observacion = CharField(max_length=255, null=True)
+    tipo_movimiento = CharField(max_length=20)
+    id_producto = IntegerField()
+
+    class Meta:
+        table_name = 'movimiento_inventario'

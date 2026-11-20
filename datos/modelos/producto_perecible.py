@@ -1,5 +1,9 @@
-class Producto_perecible:
-    def __init__(self, id_producto, fecha_vencimiento):
-        self.__id_producto = id_producto
-        self.__fecha_vencimiento = fecha_vencimiento
+from peewee import DateField, IntegerField
+from datos.modelos.base import BaseModel
 
+class ProductoPerecible(BaseModel):
+    id_producto = IntegerField(primary_key=True)
+    fecha_vencimiento = DateField()
+
+    class Meta:
+        table_name = 'producto_perecible'
