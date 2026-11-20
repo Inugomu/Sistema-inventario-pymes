@@ -75,9 +75,12 @@ def deshabilitar_objeto_usuario(usuario: Usuario):
 def usuario_por_rut(rut: str):
     return obtener_usuario_rut(rut)
 
+def usuario_por_correo(correo: str):
+    return obtener_usuario_correo(correo.lower(), solo_habilitados=False)
+
 def autenticar_usuario(correo: str, contrasena_plana: str):
     try:
-        usuario = obtener_usuario_correo(correo.lower())
+        usuario = obtener_usuario_correo(correo.lower(), solo_habilitados=True)
         if not usuario:
             return None
         password_guardada = usuario.password.encode('utf-8')

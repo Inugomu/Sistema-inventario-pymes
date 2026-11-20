@@ -13,6 +13,7 @@ from negocio.negocio_usuario import (
     modificar_objeto_usuario,
     deshabilitar_objeto_usuario,
     usuario_por_rut,
+    usuario_por_correo,
     autenticar_usuario
 )
 
@@ -88,10 +89,17 @@ def mostrar_listado_usuarios():
 
 def crear_usuario(es_registro_publico=False):
     print('\n=== REGISTRAR NUEVO USUARIO ===')
-    rut = solicitar_rut('RUT (ej. 12.345.678-9): ')
+    rut = solicitar_rut('RUT (ej. 12345678-9): ')
+    if usuario_por_rut(rut):
+        print('Error: Ya existe un usuario registrado con ese RUT.\n')
+        return
+
     nombre = solicitar_texto('Nombre: ', largo=50)
     apellido = solicitar_texto('Apellido: ', largo=50)
     correo = solicitar_correo('Correo electrónico: ')
+    if usuario_por_correo(correo):
+        print('Error: Ya existe una cuenta registrada con ese correo.\n')
+        return
     
     if es_registro_publico:
         rol = 'OPERADOR'
@@ -113,9 +121,17 @@ def modificar_usuario():
 
     print(f'Editando a: {usuario.nombre} {usuario.apellido} ({usuario.correo})\n')
     nuevo_rut = solicitar_rut('Nuevo RUT (ENTER para conservar): ', opcional=True)
+    if nuevo_rut and nuevo_rut != usuario.rut and usuario_por_rut(nuevo_rut):
+        print('Error: Ese RUT ya pertenece a otro usuario.\n')
+        return
+
     nuevo_nombre = solicitar_texto('Nuevo Nombre (ENTER para conservar): ', largo=50, opcional=True)
     nuevo_apellido = solicitar_texto('Nuevo Apellido (ENTER para conservar): ', largo=50, opcional=True)
     nuevo_correo = solicitar_correo('Nuevo Correo (ENTER para conservar): ', opcional=True)
+    if nuevo_correo and nuevo_correo.lower() != usuario.correo and usuario_por_correo(nuevo_correo):
+        print('Error: Ese correo ya pertenece a otro usuario.\n')
+        return
+
     nuevo_rol = solicitar_rol(opcional=True)
 
     modificar_objeto_usuario(nuevo_rut, nuevo_nombre, nuevo_apellido, nuevo_correo, nuevo_rol, usuario)

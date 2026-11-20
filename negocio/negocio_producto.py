@@ -2,7 +2,7 @@ from prettytable import PrettyTable
 from datos.modelos.producto import Producto
 from datos.modelos.producto_perecible import ProductoPerecible
 from datos.modelos.producto_no_perecible import ProductoNoPerecible
-from datos.repositorios.repo_producto import listado_productos, guardar_producto
+from datos.repositorios.repo_producto import listado_productos, obtener_producto_id, guardar_producto
 from datos.repositorios.repo_categoria import listado_categorias
 from datos.repositorios.repo_proveedor import listado_proveedores
 from auxiliares.datos_inventario import mensaje_error
@@ -25,6 +25,9 @@ def procesar_listado_productos(tabla: PrettyTable):
                 ])
             return tabla
     return None
+
+def producto_por_id(id_producto: int):
+    return obtener_producto_id(id_producto)
 
 def obtener_tabla_categorias():
     categorias = listado_categorias()
@@ -59,6 +62,7 @@ def crear_objeto_producto(nombre, descripcion, precio, stock_inicial, stock_mini
         prod.tipo_producto = tipo_producto
         prod.id_categoria = id_categoria
         prod.id_proveedor = id_proveedor
+        prod.habilitado = 1
         
         guardado = guardar_producto(prod)
         if guardado:
@@ -72,4 +76,26 @@ def crear_objeto_producto(nombre, descripcion, precio, stock_inicial, stock_mini
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return None
-    
+
+def modificar_objeto_producto(nombre: str, descripcion: str, precio, stock_minimo, producto: Producto):
+    try:
+        if nombre:
+            producto.nombre = nombre
+        if descripcion:
+            producto.descripcion = descripcion
+        if precio is not None:
+            producto.precio = precio
+        if stock_minimo is not None:
+            producto.stock_minimo = stock_minimo
+        return guardar_producto(producto)
+    except Exception as error:
+        print(f'{mensaje_error}: {error}')
+        return None
+
+def deshabilitar_objeto_producto(producto: Producto):
+    try:
+        producto.habilitado = 0
+        return guardar_producto(producto)
+    except Exception as error:
+        print(f'{mensaje_error}: {error}')
+        return None

@@ -2,6 +2,8 @@ from peewee import AutoField, CharField, DecimalField, IntegerField, SQL
 from datos.modelos.base import BaseModel
 from auxiliares.datos_inventario import defecto
 
+defecto_habilitado = "DEFAULT 1"
+
 class Producto(BaseModel):
     id_producto = AutoField()
     nombre = CharField(max_length=100)
@@ -12,6 +14,7 @@ class Producto(BaseModel):
     tipo_producto = CharField(max_length=50, null=True)
     id_categoria = IntegerField()
     id_proveedor = IntegerField()
+    habilitado = IntegerField(constraints=[SQL(defecto_habilitado)])
 
     class Meta:
-        table_name = 'producto'  
+        table_name = 'producto'

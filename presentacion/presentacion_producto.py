@@ -3,9 +3,12 @@ from prettytable import PrettyTable
 from auxiliares.datos_inventario import mensaje_error
 from negocio.negocio_producto import (
     procesar_listado_productos,
+    producto_por_id,
     obtener_tabla_categorias,
     obtener_tabla_proveedores,
-    crear_objeto_producto
+    crear_objeto_producto,
+    modificar_objeto_producto,
+    deshabilitar_objeto_producto
 )
 
 def mostrar_listado_productos():
@@ -38,7 +41,6 @@ def registrar_nuevo_producto():
         print('Error: Precio y stocks deben ser valores numéricos.\n')
         return
 
-    # Seleccionar Categoría
     tabla_cat, ids_cat = obtener_tabla_categorias()
     if not tabla_cat:
         print('No hay categorías registradas en la base de datos.\n')
@@ -54,7 +56,6 @@ def registrar_nuevo_producto():
         print('Debe ingresar un número.\n')
         return
 
-    # Seleccionar Proveedor
     tabla_prov, ids_prov = obtener_tabla_proveedores()
     if not tabla_prov:
         print('No hay proveedores registrados en la base de datos.\n')
@@ -70,7 +71,6 @@ def registrar_nuevo_producto():
         print('Debe ingresar un número.\n')
         return
 
-    # Tipo de producto (Perecible / No Perecible)
     print('\nTipo de Producto: [1] PERECIBLE   [2] NO PERECIBLE')
     opcion_tipo = input('Seleccione tipo [1-2]: ').strip()
     if opcion_tipo == '1':
@@ -97,4 +97,63 @@ def registrar_nuevo_producto():
         stock_minimo, tipo_producto, id_categoria, id_proveedor, dato_extra
     )
     print()
-    
+
+def modificar_producto():
+    print('\n=== MODIFICAR PRODUCTO ===')
+    mostrar_listado_productos()
+    try:
+        id_prod = int(input('Ingrese ID del producto a modificar: ').strip())
+    except ValueError:
+        print('ID inválido.\n')
+        return
+
+    producto = producto_por_id(id_prod)
+    if not producto:
+        print('Producto no encontrado.\n')
+        return
+
+    print(f'Editando: {producto.nombre} (Precio actual: ${producto.precio:,.0f} | Stock mín: {producto.stock_minimo})\n')
+    nuevo_nombre = input('Nuevo Nombre (ENTER para conservar): ').strip()
+    nueva_desc = input('Nueva Descripción (ENTER para conservar): ').strip()
+
+    precio_str = input('Nuevo Precio (ENTER para conservar): ').strip()
+    nuevo_precio = None
+    if precio_str != '':
+        try:
+            nuevo_precio = float(precio_str)
+        except ValueError:
+            print('Precio inválido. Operación cancelada.\n')
+            return
+
+    min_str = input('Nuevo Stock Mínimo (ENTER para conservar): ').strip()
+    nuevo_min = None
+    if min_str != '':
+        try:
+            nuevo_min = int(min_str)
+        except ValueError:
+            print('Stock mínimo inválido. Operación cancelada.\n')
+            return
+
+    modificar_objeto_producto(nuevo_nombre, nueva_desc, nuevo_precio, nuevo_min, producto)
+    print()
+
+def eliminar_producto():
+    print('\n=== ELIMINAR PRODUCTO ===')
+    mostrar_listado_productos()
+    try:
+        id_prod = int(input('Ingrese ID del producto a eliminar: ').strip())
+    except ValueError:
+        print('ID inválido.\n')
+        return
+
+    producto = producto_por_id(id_prod)
+    if not producto:
+        print('Producto no encontrado.\n')
+        return
+
+    confirm = input(f'¿Seguro que desea eliminar "{producto.nombre}"? [S/N]: ').strip().lower()
+    if confirm == 's':
+        deshabilitar_objeto_producto(producto)
+    else:
+        print('Operación cancelada.')
+    print()

@@ -16,7 +16,7 @@ CREATE TABLE usuario (
 
 -- Usuario Administrador inicial (Contraseña: Admin123!)
 INSERT INTO usuario (rut, nombre, apellido, correo, password, rol, fecha_incorporacion, habilitado) VALUES
-('11.111.111-1', 'Admin', 'Sistema', 'admin@pyme.cl', '$2b$12$eImiTXuWVxfM37uY4JANjQ.W2aH8sM7G7y6P6nO0xU1c5P5/fK5q2', 'ADMINISTRADOR', '2026-11-19', 1);
+('11111111-1', 'Admin', 'Sistema', 'admin@pyme.cl', 'Admin123!', 'ADMINISTRADOR', '2026-11-19', 1);
 -- 1. CATEGORIA
 CREATE TABLE categoria (
     id_categoria     INT AUTO_INCREMENT PRIMARY KEY,

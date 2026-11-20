@@ -3,7 +3,7 @@ from auxiliares.datos_inventario import mensaje_error
 
 def listado_productos():
     try:
-        productos = Producto.select()
+        productos = Producto.select().where(Producto.habilitado == 1)
         if productos:
             return list(productos)
     except Exception as error:
@@ -12,7 +12,7 @@ def listado_productos():
 
 def obtener_producto_id(id_producto):
     try:
-        return Producto.get_or_none(Producto.id_producto == id_producto)
+        return Producto.get_or_none((Producto.id_producto == id_producto) & (Producto.habilitado == 1))
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return None

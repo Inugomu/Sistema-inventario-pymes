@@ -1,13 +1,52 @@
-import sys
-from presentacion.presentacion_almacen import mostrar_listado_almacenes
-from presentacion.presentacion_producto import mostrar_listado_productos, registrar_nuevo_producto
-from presentacion.presentacion_movimiento import mostrar_listado_movimientos, registrar_movimiento_inventario
+from presentacion.presentacion_almacen import (
+    mostrar_listado_almacenes,
+    registrar_nuevo_almacen,
+    modificar_almacen,
+    eliminar_almacen
+)
+from presentacion.presentacion_producto import (
+    mostrar_listado_productos,
+    registrar_nuevo_producto,
+    modificar_producto,
+    eliminar_producto
+)
+from presentacion.presentacion_movimiento import (
+    mostrar_listado_movimientos,
+    registrar_movimiento_inventario
+)
 from presentacion.presentacion_usuario import (
     mostrar_listado_usuarios,
     crear_usuario,
     modificar_usuario,
     eliminar_usuario
 )
+
+def cargar_menu_almacenes():
+    while True:
+        print('------------------------------------')
+        print('       GESTIÓN DE ALMACENES')
+        print('------------------------------------')
+        print('[1] - Listar Almacenes')
+        print('[2] - Registrar Nuevo Almacén')
+        print('[3] - Modificar Almacén')
+        print('[4] - Eliminar Almacén')
+        print('[0] - Volver al Menú Principal\n')
+
+        opcion = input('Seleccione una opción: ').strip()
+        match opcion:
+            case '1':
+                mostrar_listado_almacenes()
+            case '2':
+                registrar_nuevo_almacen()
+            case '3':
+                modificar_almacen()
+            case '4':
+                eliminar_almacen()
+            case '0':
+                print()
+                break
+            case _:
+                print('\nOpción no válida. Intente nuevamente.\n')
 
 def cargar_menu_productos():
     while True:
@@ -16,6 +55,8 @@ def cargar_menu_productos():
         print('------------------------------------')
         print('[1] - Listar Productos y Stock')
         print('[2] - Ingresar Nuevo Producto')
+        print('[3] - Modificar Producto')
+        print('[4] - Eliminar Producto')
         print('[0] - Volver al Menú Principal\n')
 
         opcion = input('Seleccione una opción: ').strip()
@@ -24,6 +65,10 @@ def cargar_menu_productos():
                 mostrar_listado_productos()
             case '2':
                 registrar_nuevo_producto()
+            case '3':
+                modificar_producto()
+            case '4':
+                eliminar_producto()
             case '0':
                 print()
                 break
@@ -87,18 +132,18 @@ def cargar_menu(usuario_actual=None):
         print('   SISTEMA DE INVENTARIO PYME')
         print(f'   Sesión: {nombre_sesion}')
         print('====================================')
-        print('[1] - Listar Almacenes')
-        print('[2] - Gestión de Productos (Ver / Crear)')
-        print('[3] - Movimientos y Actualizar Stock')
+        print('[1] - Gestión de Almacenes')
+        print('[2] - Gestión de Productos')
+        print('[3] - Movimientos y Control de Stock')
         if es_admin:
             print('[4] - Gestión de Usuarios (Admin)')
-        print('[0] - Cerrar Sesión y Salir\n')
+        print('[0] - Cerrar Sesión\n')
 
         opcion = input('Seleccione una opción: ').strip()
 
         match opcion:
             case '1':
-                mostrar_listado_almacenes()
+                cargar_menu_almacenes()
             case '2':
                 cargar_menu_productos()
             case '3':
@@ -106,7 +151,7 @@ def cargar_menu(usuario_actual=None):
             case '4' if es_admin:
                 cargar_menu_usuarios()
             case '0':
-                print('\nCerrando sesión...')
+                print('\nCerrando sesión...\n')
                 break
             case _:
                 print('\nOpción no válida o sin permisos suficientes.\n')

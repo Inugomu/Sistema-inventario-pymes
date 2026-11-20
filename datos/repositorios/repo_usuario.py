@@ -17,11 +17,13 @@ def obtener_usuario_rut(rut_usuario):
         print(f'{mensaje_error}: {error}')
         return None
 
-def obtener_usuario_correo(correo_usuario):
+def obtener_usuario_correo(correo_usuario, solo_habilitados=True):
     try:
-        return Usuario.select().where(
-            (Usuario.correo == correo_usuario) & (Usuario.habilitado == 1)
-        ).first()
+        if solo_habilitados:
+            return Usuario.select().where(
+                (Usuario.correo == correo_usuario) & (Usuario.habilitado == 1)
+            ).first()
+        return Usuario.select().where(Usuario.correo == correo_usuario).first()
     except Exception as error:
         print(f'{mensaje_error}: {error}')
         return None
