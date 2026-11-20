@@ -1,6 +1,22 @@
 CREATE DATABASE inventario_pyme;
 USE inventario_pyme;
 
+-- 11. USUARIO
+CREATE TABLE usuario (
+    id_usuario          INT AUTO_INCREMENT PRIMARY KEY,
+    rut                 VARCHAR(12) NOT NULL UNIQUE,
+    nombre              VARCHAR(50) NOT NULL,
+    apellido            VARCHAR(50) NOT NULL,
+    correo              VARCHAR(191) NOT NULL UNIQUE,
+    password            VARCHAR(60) NOT NULL,
+    rol                 VARCHAR(30) NOT NULL DEFAULT 'OPERADOR',
+    fecha_incorporacion DATE NOT NULL,
+    habilitado          TINYINT NOT NULL DEFAULT 1
+);
+
+-- Usuario Administrador inicial (Contraseña: Admin123!)
+INSERT INTO usuario (rut, nombre, apellido, correo, password, rol, fecha_incorporacion, habilitado) VALUES
+('11.111.111-1', 'Admin', 'Sistema', 'admin@pyme.cl', '$2b$12$eImiTXuWVxfM37uY4JANjQ.W2aH8sM7G7y6P6nO0xU1c5P5/fK5q2', 'ADMINISTRADOR', '2026-11-19', 1);
 -- 1. CATEGORIA
 CREATE TABLE categoria (
     id_categoria     INT AUTO_INCREMENT PRIMARY KEY,
