@@ -1,22 +1,6 @@
-CREATE DATABASE inventario_pyme;
+CREATE DATABASE IF NOT EXISTS inventario_pyme;
 USE inventario_pyme;
 
--- 11. USUARIO
-CREATE TABLE usuario (
-    id_usuario          INT AUTO_INCREMENT PRIMARY KEY,
-    rut                 VARCHAR(12) NOT NULL UNIQUE,
-    nombre              VARCHAR(50) NOT NULL,
-    apellido            VARCHAR(50) NOT NULL,
-    correo              VARCHAR(191) NOT NULL UNIQUE,
-    password            VARCHAR(60) NOT NULL,
-    rol                 VARCHAR(30) NOT NULL DEFAULT 'OPERADOR',
-    fecha_incorporacion DATE NOT NULL,
-    habilitado          TINYINT NOT NULL DEFAULT 1
-);
-
--- Usuario Administrador inicial (Contraseña: Admin123!)
-INSERT INTO usuario (rut, nombre, apellido, correo, password, rol, fecha_incorporacion, habilitado) VALUES
-('11111111-1', 'Admin', 'Sistema', 'admin@pyme.cl', 'Admin123!', 'ADMINISTRADOR', '2026-11-19', 1);
 -- 1. CATEGORIA
 CREATE TABLE categoria (
     id_categoria     INT AUTO_INCREMENT PRIMARY KEY,
@@ -36,7 +20,8 @@ CREATE TABLE almacen (
     id_almacen       INT AUTO_INCREMENT PRIMARY KEY,
     nombre_almacen   VARCHAR(100) NOT NULL,
     direccion        VARCHAR(150),
-    capacidad_maxima INT
+    capacidad_maxima INT,
+    habilitado       TINYINT NOT NULL DEFAULT 1
 );
 
 -- 4. PRODUCTO
@@ -49,7 +34,8 @@ CREATE TABLE producto (
     stock_minimo  INT NOT NULL DEFAULT 0,
     tipo_producto ENUM('PERECIBLE', 'NO_PERECIBLE') NOT NULL,
     id_categoria  INT NOT NULL,
-    id_proveedor  INT NOT NULL
+    id_proveedor  INT NOT NULL,
+    habilitado    TINYINT NOT NULL DEFAULT 1
 );
 
 -- 5. PRODUCTO_PERECIBLE
@@ -93,6 +79,24 @@ CREATE TABLE salida_inventario (
     id_movimiento INT PRIMARY KEY,
     motivo_salida VARCHAR(150)
 );
+
+-- 11. USUARIO
+CREATE TABLE usuario (
+    id_usuario          INT AUTO_INCREMENT PRIMARY KEY,
+    rut                 VARCHAR(12) NOT NULL UNIQUE,
+    nombre              VARCHAR(50) NOT NULL,
+    apellido            VARCHAR(50) NOT NULL,
+    correo              VARCHAR(191) NOT NULL UNIQUE,
+    password            VARCHAR(60) NOT NULL,
+    rol                 VARCHAR(30) NOT NULL DEFAULT 'OPERADOR',
+    fecha_incorporacion DATE NOT NULL,
+    habilitado          TINYINT NOT NULL DEFAULT 1
+);
+
+-- Usuario Administrador inicial (Contraseña: Admin123!)
+INSERT INTO usuario (rut, nombre, apellido, correo, password, rol, fecha_incorporacion, habilitado) VALUES
+('11111111-1', 'Admin', 'Sistema', 'admin@pyme.cl', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj2N/7/7/7/7', 'ADMINISTRADOR', '2026-11-19', 1);
+
 -- ---------- 1. CATEGORIA  ----------
 INSERT INTO categoria (nombre_categoria) VALUES
     ('Café en grano'),
