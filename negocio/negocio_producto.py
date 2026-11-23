@@ -2,9 +2,9 @@ from prettytable import PrettyTable
 from datos.modelos.producto import Producto
 from datos.modelos.producto_perecible import ProductoPerecible
 from datos.modelos.producto_no_perecible import ProductoNoPerecible
-from datos.repositorios.repo_producto import listado_productos, obtener_producto_id, guardar_producto
-from datos.repositorios.repo_categoria import listado_categorias
-from datos.repositorios.repo_proveedor import listado_proveedores
+from datos.repositorio.repo_producto import listado_productos, obtener_producto_id, guardar_producto
+from datos.repositorio.repo_categoria import listado_categorias
+from datos.repositorio.repo_proveedor import listado_proveedores
 from auxiliares.datos_inventario import mensaje_error
 
 def procesar_listado_productos(tabla: PrettyTable):

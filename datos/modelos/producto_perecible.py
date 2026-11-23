@@ -1,7 +1,7 @@
 from peewee import DateField, IntegerField
-from datos.base import BaseModel
+from datos.model_base import ModelBase
 
-class ProductoPerecible(BaseModel):
+class ProductoPerecible(ModelBase):
     id_producto = IntegerField(primary_key=True)
     fecha_vencimiento = DateField()
 

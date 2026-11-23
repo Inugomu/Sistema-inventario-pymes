@@ -1,7 +1,7 @@
 from peewee import CharField, IntegerField
-from datos.base import BaseModel
+from datos.model_base import ModelBase
 
-class SalidaInventario(BaseModel):
+class SalidaInventario(ModelBase):
     id_movimiento = IntegerField(primary_key=True)
     motivo_salida = CharField(max_length=150, null=True)
 

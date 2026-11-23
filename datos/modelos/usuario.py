@@ -1,9 +1,9 @@
 from peewee import AutoField, CharField, IntegerField, DateField, SQL
-from datos.base import BaseModel
+from datos.model_base import ModelBase
 
 defecto_habilitado = "DEFAULT 1"
 
-class Usuario(BaseModel):
+class Usuario(ModelBase):
     id_usuario = AutoField()
     rut = CharField(max_length=12, unique=True)
     nombre = CharField(max_length=50)
