@@ -1,5 +1,5 @@
 from peewee import IntegerField
-from datos.modelos.base import BaseModel
+from datos.base import BaseModel
 
 class EntradaInventario(BaseModel):
     id_movimiento = IntegerField(primary_key=True)

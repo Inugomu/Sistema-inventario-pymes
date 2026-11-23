@@ -1,5 +1,5 @@
 from peewee import AutoField, CharField, DecimalField, IntegerField, SQL
-from datos.modelos.base import BaseModel
+from datos.base import BaseModel
 from auxiliares.datos_inventario import defecto
 
 defecto_habilitado = "DEFAULT 1"

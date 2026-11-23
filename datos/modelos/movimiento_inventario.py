@@ -1,5 +1,5 @@
 from peewee import AutoField, DateField, IntegerField, CharField
-from datos.modelos.base import BaseModel
+from datos.base import BaseModel
 
 class MovimientoInventario(BaseModel):
     id_movimiento = AutoField()
