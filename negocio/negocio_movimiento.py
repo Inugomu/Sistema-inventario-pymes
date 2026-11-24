@@ -3,8 +3,8 @@ from prettytable import PrettyTable
 from datos.modelos.movimiento_inventario import MovimientoInventario
 from datos.modelos.entrada_inventario import EntradaInventario
 from datos.modelos.salida_inventario import SalidaInventario
-from datos.repositorios.repo_movimiento_inventario import listado_movimientos, guardar_movimiento
-from datos.repositorios.repo_producto import listado_productos, obtener_producto_id, guardar_producto
+from datos.repositorio.repo_movimiento_inventario import listado_movimientos, guardar_movimiento
+from datos.repositorio.repo_producto import listado_productos, obtener_producto_id, guardar_producto
 from auxiliares.datos_inventario import mensaje_error
 
 def procesar_listado_movimientos(tabla: PrettyTable):

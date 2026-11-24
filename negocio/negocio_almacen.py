@@ -1,6 +1,6 @@
 from prettytable import PrettyTable
 from datos.modelos.almacen import Almacen
-from datos.repositorios.repo_almacen import listado_almacenes, obtener_almacen_id, guardar_almacen
+from datos.repositorio.repo_almacen import listado_almacenes, obtener_almacen_id, guardar_almacen
 from auxiliares.datos_inventario import mensaje_error
 
 def procesar_listado_almacenes(tabla: PrettyTable):

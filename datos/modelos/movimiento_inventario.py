@@ -1,7 +1,7 @@
 from peewee import AutoField, DateField, IntegerField, CharField
-from datos.modelos.base import BaseModel
+from datos.model_base import ModelBase
 
-class MovimientoInventario(BaseModel):
+class MovimientoInventario(ModelBase):
     id_movimiento = AutoField()
     fecha = DateField()
     cantidad = IntegerField()

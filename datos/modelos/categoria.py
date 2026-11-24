@@ -1,7 +1,7 @@
 from peewee import AutoField, CharField
-from datos.modelos.base import BaseModel
+from datos.model_base import ModelBase
 
-class Categoria(BaseModel):
+class Categoria(ModelBase):
     id_categoria = AutoField()
     nombre_categoria = CharField(max_length=100)
 

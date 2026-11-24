@@ -19,7 +19,7 @@ def menu_acceso():
                 if usuario_autenticado:
                     cargar_menu(usuario_autenticado)
             case '2':
-                crear_usuario()
+                crear_usuario(es_registro_publico=True)
             case '0':
                 print('\nSaliendo del sistema...')
                 sys.exit()

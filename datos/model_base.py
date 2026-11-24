@@ -3,6 +3,6 @@ from datos.conexion import conectar
 
 base_datos = conectar()
 
-class BaseModel(Model):
+class ModelBase(Model):
     class Meta:
         database = base_datos

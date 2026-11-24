@@ -1,29 +1,28 @@
 # Sistema de Inventario PYME
 
-Sistema de gestión e inventario en consola desarrollado en Python utilizando arquitectura en 3 capas (`presentacion`, `negocio`, `datos`) con el ORM Peewee y MySQL.
+## Integrantes
+- Antonella González
+- Laura Arriagada
 
-## Requisitos Previos
+## Descripción General
+Aplicación de consola desarrollada en Python para la gestión de inventario de una PYME, implementada bajo una arquitectura en 3 capas (`presentacion`, `negocio`, `datos`) más capa `auxiliares`, utilizando el ORM Peewee y base de datos relacional MySQL. Incluye autenticación con contraseñas encriptadas, control de acceso por roles (`ADMINISTRADOR` y `OPERADOR`), CRUD completo de entidades principales y control de movimientos de stock.
 
+## Dependencias
 - Python 3.10 o superior
-- Servidor MySQL (WAMP / XAMPP / MySQL Server)
+- MySQL Server (WAMP / XAMPP)
+- Librerías Python (`requirements.txt`):
+  - `peewee==3.17.8` (ORM)
+  - `PyMySQL==1.1.1` (Conector MySQL)
+  - `bcrypt==4.2.1` (Encriptación de contraseñas)
+  - `maskpass==0.3.7` (Ocultamiento de contraseñas en consola)
+  - `prettytable==3.12.0` (Tablas formateadas en consola)
+  - `python-decouple==3.8` (Variables de entorno)
 
-## Instalación y Configuración
-
-1. **Clonar el repositorio y entrar a la carpeta del proyecto:**
+## Procedimiento de Instalación
+1. Clonar el repositorio e ingresar al directorio del proyecto:
    ```bash
-   git clone <URL_DE_TU_REPOSITORIO>
+   git clone <URL_DEL_REPOSITORIO>
    cd Sistema-inventario-pymes
 
-2. Crear y activar el entorno virtual:
-   python -m venv .venv
-.venv\Scripts\activate
 
-3. Instalar dependencias:
-   pip install -r requirements.txt
-
-4.Configurar la base de datos:
-   Importar o ejecutar el script datos/sql/basededatos.sql en MySQL.
-   copiar .env.example a .env y ajustar las credenciales de conexión (user, password, port).
-
-5.Ejecutar el sistema:
-   python inventario.py
+   

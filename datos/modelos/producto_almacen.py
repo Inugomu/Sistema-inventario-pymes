@@ -1,8 +1,8 @@
 from peewee import AutoField, IntegerField, SQL
-from datos.modelos.base import BaseModel
+from datos.model_base import ModelBase
 from auxiliares.datos_inventario import defecto
 
-class ProductoAlmacen(BaseModel):
+class ProductoAlmacen(ModelBase):
     id_registro = AutoField()
     id_producto = IntegerField()
     id_almacen = IntegerField()

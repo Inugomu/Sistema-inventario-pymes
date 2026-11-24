@@ -1,10 +1,10 @@
 from peewee import AutoField, CharField, IntegerField, SQL
-from datos.modelos.base import BaseModel
+from datos.model_base import ModelBase
 from auxiliares.datos_inventario import defecto
 
 defecto_habilitado = "DEFAULT 1"
 
-class Almacen(BaseModel):
+class Almacen(ModelBase):
     id_almacen = AutoField()
     nombre_almacen = CharField(max_length=100)
     direccion = CharField(max_length=150, null=True)

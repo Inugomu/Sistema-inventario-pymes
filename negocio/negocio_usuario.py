@@ -2,7 +2,7 @@ import bcrypt
 from datetime import datetime
 from prettytable import PrettyTable
 from datos.modelos.usuario import Usuario
-from datos.repositorios.repo_usuario import (
+from datos.repositorio.repo_usuario import (
     listado_usuarios_habilitados,
     obtener_usuario_rut,
     obtener_usuario_correo,
