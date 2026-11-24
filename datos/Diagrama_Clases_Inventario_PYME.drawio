@@ -1,0 +1,226 @@
+<mxfile host="app.diagrams.net" agent="python-generator">
+  <diagram name="Diagrama de Clases UML - Inventario PYME" id="inventario-pyme-uml-clases">
+    <mxGraphModel dx="1900" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1350" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ==================== CLASE: USUARIO ==================== -->
+        <mxCell id="cls_usuario" value="Usuario" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="290" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_usuario_attrs" value="- id_usuario: int&#xa;- rut: str&#xa;- nombre: str&#xa;- apellido: str&#xa;- correo: str&#xa;- password: str&#xa;- rol: str&#xa;- fecha_incorporacion: date&#xa;- habilitado: int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_usuario">
+          <mxGeometry y="28" width="290" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_usuario_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" vertex="1" parent="cls_usuario">
+          <mxGeometry y="170" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_usuario_methods" value="+ crear_usuario(): Usuario&#xa;+ modificar_usuario(): Usuario&#xa;+ deshabilitar_usuario(): Usuario&#xa;+ autenticar_usuario(correo, password): Usuario&#xa;+ listar_usuarios(): list&lt;Usuario&gt;" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_usuario">
+          <mxGeometry y="178" width="290" height="92" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLASE: CATEGORIA ==================== -->
+        <mxCell id="cls_categoria" value="Categoria" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="60" y="380" width="290" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_categoria_attrs" value="- id_categoria: int&#xa;- nombre_categoria: str" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_categoria">
+          <mxGeometry y="28" width="290" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_categoria_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" vertex="1" parent="cls_categoria">
+          <mxGeometry y="72" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_categoria_methods" value="+ listar_categorias(): list&lt;Categoria&gt;&#xa;+ obtener_por_nombre(nombre): Categoria" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_categoria">
+          <mxGeometry y="80" width="290" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLASE: PROVEEDOR ==================== -->
+        <mxCell id="cls_proveedor" value="Proveedor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="60" y="570" width="290" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_proveedor_attrs" value="- id_proveedor: int&#xa;- nombre: str&#xa;- telefono: str&#xa;- email: str" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_proveedor">
+          <mxGeometry y="28" width="290" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_proveedor_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" vertex="1" parent="cls_proveedor">
+          <mxGeometry y="100" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_proveedor_methods" value="+ listar_proveedores(): list&lt;Proveedor&gt;&#xa;+ obtener_por_nombre(nombre): Proveedor" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_proveedor">
+          <mxGeometry y="108" width="290" height="57" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLASE: PRODUCTO_PERECIBLE ==================== -->
+        <mxCell id="cls_perecible" value="ProductoPerecible" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="520" y="60" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_perecible_attrs" value="- id_producto: int&#xa;- fecha_vencimiento: date" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_perecible">
+          <mxGeometry y="28" width="250" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_perecible_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#82b366;" vertex="1" parent="cls_perecible">
+          <mxGeometry y="70" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_perecible_methods" value="+ registrar_vencimiento(): bool" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_perecible">
+          <mxGeometry y="78" width="250" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLASE: PRODUCTO_NO_PERECIBLE ==================== -->
+        <mxCell id="cls_no_perecible" value="ProductoNoPerecible" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="830" y="60" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_no_perecible_attrs" value="- id_producto: int&#xa;- garantia_meses: int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_no_perecible">
+          <mxGeometry y="28" width="250" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_no_perecible_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#82b366;" vertex="1" parent="cls_no_perecible">
+          <mxGeometry y="70" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_no_perecible_methods" value="+ registrar_garantia(): bool" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_no_perecible">
+          <mxGeometry y="78" width="250" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLASE: PRODUCTO ==================== -->
+        <mxCell id="cls_producto" value="Producto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="640" y="250" width="320" height="295" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_producto_attrs" value="- id_producto: int&#xa;- nombre: str&#xa;- descripcion: str&#xa;- precio: Decimal&#xa;- stock_actual: int&#xa;- stock_minimo: int&#xa;- tipo_producto: str&#xa;- id_categoria: int&#xa;- id_proveedor: int&#xa;- habilitado: int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_producto">
+          <mxGeometry y="28" width="320" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_producto_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" vertex="1" parent="cls_producto">
+          <mxGeometry y="184" width="320" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_producto_methods" value="+ crear_producto(): Producto&#xa;+ modificar_producto(): Producto&#xa;+ deshabilitar_producto(): Producto&#xa;+ listar_productos(): list&lt;Producto&gt;&#xa;+ verificar_bajo_stock(): bool" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_producto">
+          <mxGeometry y="192" width="320" height="103" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLASE: ALMACEN ==================== -->
+        <mxCell id="cls_almacen" value="Almacen" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="250" width="290" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_almacen_attrs" value="- id_almacen: int&#xa;- nombre_almacen: str&#xa;- direccion: str&#xa;- capacidad_maxima: int&#xa;- habilitado: int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_almacen">
+          <mxGeometry y="28" width="290" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_almacen_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" vertex="1" parent="cls_almacen">
+          <mxGeometry y="114" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_almacen_methods" value="+ crear_almacen(): Almacen&#xa;+ modificar_almacen(): Almacen&#xa;+ deshabilitar_almacen(): Almacen&#xa;+ listar_almacenes(): list&lt;Almacen&gt;" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_almacen">
+          <mxGeometry y="122" width="290" height="73" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLASE: PRODUCTO_ALMACEN ==================== -->
+        <mxCell id="cls_prod_alm" value="ProductoAlmacen" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="510" width="290" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_prod_alm_attrs" value="- id_registro: int&#xa;- id_producto: int&#xa;- id_almacen: int&#xa;- cantidad: int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_prod_alm">
+          <mxGeometry y="28" width="290" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_prod_alm_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#d6b656;" vertex="1" parent="cls_prod_alm">
+          <mxGeometry y="98" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_prod_alm_methods" value="+ asignar_stock_almacen(): ProductoAlmacen&#xa;+ consultar_stock_ubicacion(): int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_prod_alm">
+          <mxGeometry y="106" width="290" height="44" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLASE: MOVIMIENTO_INVENTARIO ==================== -->
+        <mxCell id="cls_mov" value="MovimientoInventario" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="640" y="640" width="320" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_mov_attrs" value="- id_movimiento: int&#xa;- fecha: date&#xa;- cantidad: int&#xa;- observacion: str&#xa;- tipo_movimiento: str&#xa;- id_producto: int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_mov">
+          <mxGeometry y="28" width="320" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_mov_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" vertex="1" parent="cls_mov">
+          <mxGeometry y="128" width="320" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_mov_methods" value="+ registrar_movimiento_stock(): MovimientoInventario&#xa;+ listar_movimientos(): list&lt;MovimientoInventario&gt;" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_mov">
+          <mxGeometry y="136" width="320" height="59" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLASE: ENTRADA_INVENTARIO ==================== -->
+        <mxCell id="cls_entrada" value="EntradaInventario" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="450" y="920" width="260" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_entrada_attrs" value="- id_movimiento: int&#xa;- id_proveedor: int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_entrada">
+          <mxGeometry y="28" width="260" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_entrada_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#82b366;" vertex="1" parent="cls_entrada">
+          <mxGeometry y="70" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_entrada_methods" value="+ registrar_entrada(): bool" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_entrada">
+          <mxGeometry y="78" width="260" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLASE: SALIDA_INVENTARIO ==================== -->
+        <mxCell id="cls_salida" value="SalidaInventario" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="890" y="920" width="260" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_salida_attrs" value="- id_movimiento: int&#xa;- motivo_salida: str" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_salida">
+          <mxGeometry y="28" width="260" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_salida_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#82b366;" vertex="1" parent="cls_salida">
+          <mxGeometry y="70" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_salida_methods" value="+ registrar_salida(): bool" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=8;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="cls_salida">
+          <mxGeometry y="78" width="260" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== RELACIONES ==================== -->
+        <!-- Herencia: ProductoPerecible -> Producto -->
+        <mxCell id="rel_her_per" value="" style="endArrow=block;endSize=14;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_perecible" target="cls_producto">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Herencia: ProductoNoPerecible -> Producto -->
+        <mxCell id="rel_her_noper" value="" style="endArrow=block;endSize=14;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.7;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_no_perecible" target="cls_producto">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Herencia: EntradaInventario -> MovimientoInventario -->
+        <mxCell id="rel_her_ent" value="" style="endArrow=block;endSize=14;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.3;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_entrada" target="cls_mov">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Herencia: SalidaInventario -> MovimientoInventario -->
+        <mxCell id="rel_her_sal" value="" style="endArrow=block;endSize=14;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.7;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_salida" target="cls_mov">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Asociación: Categoria (1) -> (*) Producto -->
+        <mxCell id="rel_cat_prod" value="clasifica (1 .. *)" style="endArrow=open;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.35;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_categoria" target="cls_producto">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Asociación: Proveedor (1) -> (*) Producto -->
+        <mxCell id="rel_prov_prod" value="suministra (1 .. *)" style="endArrow=open;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;fontSize=10;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_proveedor" target="cls_producto">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Asociación: Proveedor (1) -> (*) EntradaInventario -->
+        <mxCell id="rel_prov_ent" value="abastece (1 .. *)" style="endArrow=open;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_proveedor" target="cls_entrada">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Asociación: Producto (1) -> (*) ProductoAlmacen -->
+        <mxCell id="rel_prod_pa" value="se ubica en (1 .. *)" style="endArrow=open;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;fontSize=10;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_producto" target="cls_prod_alm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Asociación: Almacen (1) -> (*) ProductoAlmacen -->
+        <mxCell id="rel_alm_pa" value="almacena (1 .. *)" style="endArrow=open;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_almacen" target="cls_prod_alm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Asociación: Producto (1) -> (*) MovimientoInventario -->
+        <mxCell id="rel_prod_mov" value="registra (1 .. *)" style="endArrow=open;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_producto" target="cls_mov">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Dependencia: Usuario ..> MovimientoInventario -->
+        <mxCell id="rel_usu_mov" value="gestiona" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;fontSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cls_usuario" target="cls_mov">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="195" />
+              <mxPoint x="20" y="790" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
